@@ -9,6 +9,19 @@ class App extends Component {
       userData: []
     };
   }
+
+  componentDidMount() {
+    axios
+      .get("https://api.github.com/users/dustinmyers")
+      .then(results => {
+        console.log("user info", results.data);
+
+        this.setState({ userData: [results.data] });
+      })
+
+      .catch(err => console.log("did not work", err));
+  }
+
   render() {
     return (
       <div className="App">
