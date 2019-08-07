@@ -6,9 +6,9 @@ const UserList = props => {
   console.log("UserList:", props);
   return (
     <div>
-      {props.userData.map((user, i) => {
-        return <UserCard user={user} key={i} />;
-      })}
+      {props.followers.map(follower => (
+        <UserCard follower={follower} key={follower.i} />
+      ))}
     </div>
   );
 };
